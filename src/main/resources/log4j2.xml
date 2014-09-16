@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+	<Properties>
+		<Property name="log-path">/var/log/prayogshaale</Property>
+	</Properties>
+
+	<Appenders>
+	
+		<RollingFile name="trace-log" fileName="${log-path}/log4j2-config-demo.log"
+			filePattern="${log-path}/log4j2-config-demo-trace-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+		
+		<RollingFile name="debug-log" fileName="${log-path}/log4j2-config-demo.log"
+			filePattern="${log-path}/log4j2-config-demo-debug-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+		
+		<RollingFile name="info-log" fileName="${log-path}/log4j2-config-demo.log"
+			filePattern="${log-path}/log4j2-config-demo-info-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+		
+		<RollingFile name="warn-log" fileName="${log-path}/log4j2-config-demo.log"
+			filePattern="${log-path}/log4j2-config-demo-warn-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+		
+		<RollingFile name="error-log" fileName="${log-path}/log4j2-config-demo.log"
+			filePattern="${log-path}/log4j2-config-demo-error-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+		
+		<RollingFile name="fatal-log" fileName="${log-path}/log4j2-config-demo.log"
+			filePattern="${log-path}/log4j2-config-demo-fatal-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+		
+		<RollingFile name="file-log" fileName="${log-path}/log4j2-config-demo.log"
+			filePattern="${log-path}/log4j2-config-demo-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+		</Console>
+	</Appenders>
+
+	<Loggers>
+		<Root level="trace" additivity="false">
+			<AppenderRef ref="console" />
+		</Root>
+		<Logger name="org.prayogshaale" level="info" additivity="false">
+			<appender-ref ref="trace-log" level="trace"/>
+			<appender-ref ref="debug-log" level="debug"/>
+			<appender-ref ref="info-log" level="info"/>
+			<appender-ref ref="warn-log" level="warn"/>
+			<appender-ref ref="error-log" level="error"/>
+			<appender-ref ref="fatal-log" level="fatal"/>
+		</Logger>
+	</Loggers>
+</Configuration>
